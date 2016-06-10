@@ -23,7 +23,7 @@ class TextPacket extends DataPacket{
 		$this->type = $this->getByte();
 		switch($this->type){
 			case self::TYPE_POPUP:
-            case self::TYPE_TIP: //0.14.2 fix
+            		case self::TYPE_TIP: //0.14.2 fix
 			case self::TYPE_CHAT:
 				$this->source = $this->getString();
 			case self::TYPE_RAW:
@@ -42,21 +42,24 @@ class TextPacket extends DataPacket{
 
 	public function encode(){
 		$this->reset();
-        if($this->type == self::TYPE_TIP){
-            $this->putByte(self::TYPE_POPUP);
-        }else{
-            $this->putByte($this->type);
-        }
+        	if($this->type == self::TYPE_TIP){
+        		$this->putByte(self::TYPE_POPUP);
+		}else{
+	        	$this->putByte($this->type);
+        	}
 		switch($this->type){
 			case self::TYPE_POPUP:
-            case self::TYPE_TIP: //0.14.2 fix
-			case self::TYPE_CHAT:
+            		case self::TYPE_TIP: //0.14.2 fix
 				$this->putString($this->source);
 			case self::TYPE_RAW:
 			case self::TYPE_SYSTEM:
 				$this->putString($this->message);
 				break;
-
+			case self::TYPE_CHAT:
+				$this->putString($this->source);
+				$message = "WIP";//0.14 colour reset fix
+				$this->putString($message);
+				break;
 			case self::TYPE_TRANSLATION:
 				$this->putString($this->message);
 				$this->putByte(count($this->parameters));
