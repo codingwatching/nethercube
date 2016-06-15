@@ -1,5 +1,5 @@
 @echo off
-TITLE ClearSky server software for Minecraft: Pocket Edition
+TITLE nethercube server software for Minecraft: Pocket Edition
 cd /d %~dp0
 
 if exist bin\php\php.exe (
