@@ -309,7 +309,7 @@ class Server{
 	 * @return string
 	 */
 	public function getName(){
-		return "ClearSky";
+		return "nethercube";
 	}
 
 	/**
