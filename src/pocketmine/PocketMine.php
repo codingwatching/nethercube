@@ -52,6 +52,7 @@ namespace pocketmine {
 	use pocketmine\utils\Utils;
 	use pocketmine\wizard\Installer;
 
+	const BUILD = "darklava";
 	const VERSION = "0.1-php7";
 	const API_VERSION = "2.0.0";
 	const CODENAME = "Darklava";
